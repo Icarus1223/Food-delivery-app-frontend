@@ -1,23 +1,34 @@
-import React from 'react';
+import React, { useEffect }  from 'react';
 import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { FaHome } from 'react-icons/fa';
 import { MdAccountCircle } from 'react-icons/md';
 import { BsBoxArrowInRight } from 'react-icons/bs';
+import jwt from 'jwt-decode'
 import Logo from "../../assets/img/logo.png"
 import { useSelector, useDispatch } from 'react-redux';
-import { logOut } from '../../redux/actions';
+import { logOut, tokenGenerate } from '../../redux/actions';
 
 const Header = () =>  {
   const items = useSelector((state) => state.token);
   const logged = useSelector((state) => state.logged);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+    if(token) {
+      const user = jwt(token)
+      dispatch(tokenGenerate(user))
+    }
+  }, []);
+
   return (
     <div className='header'>
       <section className="top-nav">
         <div className='top-logo'>
           <LazyLoadImage
+            height={'50px'}
             alt="logo"
             src={Logo}
           />

@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FCA017;
+    background-color: #659B9B;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -17,7 +17,7 @@
     font-size: 1.2rem;
     font-weight: 400;
     margin-bottom: 30px;
-    
+
     @media only screen and (max-width: $x-size) {
       margin-bottom: 0;
     }
@@ -33,26 +33,28 @@
 
     &:hover {
       background-color: #ffffff;
-      color: #FCA017;
-      border: 2px solid #FCA017;
-      transition-duration: 0.3s, 0.5s;
-      cursor: pointer;
+      color: #659B9B;
+      border: 2px solid #659B9B;
+      transition-duration: 0.3s;
     }
+
     &:disabled,
-    &[disabled]{
+    &[disabled] {
       background-color: #F3F3F3;
       border: 2px solid #F3F3F3;
       color: #9D9B9B;
     }
   }
-  .active{
+
+  .active {
     background-color: #4e7026;
     color: #ffffff;
   }
+
   .active:disabled,
-    .active[disabled]{
-      background-color: #F3F3F3;
-      border: 2px solid #F3F3F3;
-      color: #9D9B9B;
-    }
+  .active[disabled] {
+    background-color: #F3F3F3;
+    border: 2px solid #F3F3F3;
+    color: #9D9B9B;
+  }
 }

@@ -79,7 +79,7 @@ const Cart = () => {
             
             <div onClick={() => handleUpCart()}>
               {
-                activeCart ? <img src={ArrowDown} alt="Down" /> : <img src={ArrowUp} alt="Up" />
+                activeCart ? <img src={ArrowDown} alt="Down" style={{ cursor: 'pointer' }} /> : <img src={ArrowUp} style={{ cursor: 'pointer' }} alt="Up" />
               }
             </div>
           </div>
