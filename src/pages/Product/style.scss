@@ -1,0 +1,141 @@
+.product-container {
+  @media (max-width: 768px) {
+    padding: 0 15px;
+  }
+
+  @media (max-width: 500px) {
+    padding: 0 10px;
+  }
+  .product-header {
+    background-color: #525d70;
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    .header-title {
+      padding: 20px 30px;
+      display: flex;
+      .title {
+        color: white;
+        font-size: 25px;
+        font-weight: 800;
+      }
+    }
+    .header-img {
+      width: 30%;
+      position: absolute;
+      top: 50%;
+      margin: auto;
+      display: block;
+    }
+  }
+  .product-content {
+    display: flex;
+    justify-content: center;
+    .product-box {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      display: grid;
+      row-gap: 30px;
+      .individual-pizza {
+        display: flex;
+        
+        .pizza-img {
+          width: 30%;
+          background-color: #e3ebee;
+          border-bottom-left-radius: 10px;
+          border-top-left-radius: 10px;
+          display: flex;
+          img {
+            width: 60%;
+            margin: auto;
+          }
+        }
+        
+        .pizza-content {
+          width: 70%;
+          background-color: #edf2f5;
+          padding: 30px 50px;
+          text-align: left;
+          color: #4c3017;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+          .title {
+            font-weight: 800;
+            font-size: 30px;
+          }
+          .content-desc {
+            margin-top: 20px;
+          }
+          .content-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            .cals {
+              font-weight: 800;
+              font-size: 20px;
+            }
+            .button{
+              width: 40%;
+              button {
+                margin-bottom: 0px;
+              }
+              @media only screen and (max-width: 750px) {
+                width: 50%;
+              }
+            }
+          }
+        }
+        @media only screen and (max-width: 750px) {
+          .pizza-content {
+            padding: 20px 20px;
+            .title {
+              font-size: 20px;
+              font-weight: 600;
+            }
+            .content-footer {
+              .cals {
+                font-size: 15px;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .special-combo {
+    padding: 30px 0px 30px 0px;
+  }
+  .special-box {
+    display: flex;
+    justify-content: center ;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    gap: 50px;
+    .special-individual {
+      height: 350px;
+      width: 300px;
+      border-radius: 10px;
+      background: url("../../assets/img/small-bg.png");
+      background-size: 100% 100%;
+      box-shadow: 3px 5px 10px 5px #d1d1d1;
+      padding: 15px 15px;
+      .banner-img {
+        img {
+        }
+      }
+      .special-title {
+        font-size: 25px;
+        height: 130px;
+      }
+      .button {
+        button {
+          margin-bottom: 0px;
+          width: 100%;
+        }
+      }
+     }
+  }
+}

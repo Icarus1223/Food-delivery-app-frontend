@@ -1,0 +1,31 @@
+.page-2 {
+  .banner-container {
+    .banner {
+      
+    }
+  }
+
+  .product-container {
+    .label {
+      font-size: 30px;
+      color: #3C1C21;
+      text-align: left;
+      font-weight: bold;
+      margin-top: 60px;
+      margin-bottom: 50px;
+
+      span {
+        padding-bottom: 10px;
+        border-bottom: 3px solid #fca017;
+      }
+    }
+
+    .product-list {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@import '../../components/Product/product2.scss'
