@@ -73,7 +73,7 @@ const Header = () => {
                     >
                       <div className="menu-item" onClick={() => {
                         setOpen(false)
-                        // navigate('/product/add')
+                        navigate('/orders')
                       }}>Review Orders</div>
                       <div className="menu-item" onClick={() => {
                         setOpen(false)

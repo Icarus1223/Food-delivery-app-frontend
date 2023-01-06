@@ -33,7 +33,7 @@ const PaymentForm = (props) => {
       if (!cardNumberElement) console.log('No exit card!')
       const token = await stripe.createToken(cardNumberElement, { name: holder })
       if (token.error) console.log(token.error.message)
-      axios.post('/order', {
+      axios.post('/orders', {
         order: props.order,
         token: token.token
       }, {

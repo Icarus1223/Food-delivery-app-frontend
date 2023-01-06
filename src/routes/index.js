@@ -8,6 +8,7 @@ import Product from '../pages/Product';
 import CheckOut from '../pages/CheckOut';
 import FileUpload from '../pages/FileUpload';
 import { useSelector } from 'react-redux';
+import Order from '../pages/Orders';
 
 const Routing = () => {
 	const logged = useSelector((state) => state.logged);
@@ -19,6 +20,7 @@ const Routing = () => {
 				<Route path="/" element={<Home />} />
 				<Route path='/signIn' element={<SignIn />} />
 				<Route path='/signup' element={<SignUp />} />
+				<Route path='/orders' element={logged && token && token.role === 'admin' ? <Order /> : <Navigate to="/signIn" />} />
 				<Route path="/see-all" element={logged ? <SeeAll /> : <Navigate to="/signIn" />} />
 				<Route path="/check-out" element={logged ? <CheckOut /> : <Navigate to="/signIn" />} />
 				<Route path='/product/:id' element={<Product />} />
