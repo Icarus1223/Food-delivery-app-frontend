@@ -72,7 +72,7 @@ const FileUpload = () => {
           </div>
         }
       </div>
-      <input type="file" ref={imageRef} hidden accept="image/*" onChange={handleImageUpload} />
+      <input type="file" value="" ref={imageRef} hidden accept="image/*" onChange={handleImageUpload} />
       <div style={{ width: '320px', marginBottom: '10px' }}>
         <TextField size="small" placeholder="Name" fullWidth value={name} onChange={(e) => setName(e.target.value)} />
       </div>
