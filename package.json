@@ -9,6 +9,8 @@
     "@mui/material": "^5.10.7",
     "@mui/styled-engine": "^5.10.7",
     "@mui/styled-engine-sc": "^5.10.6",
+    "@stripe/react-stripe-js": "^1.16.2",
+    "@stripe/stripe-js": "^1.46.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",

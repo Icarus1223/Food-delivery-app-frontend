@@ -52,7 +52,7 @@ export default function ProductTwo(props) {
                 <div><div className="title">{props.title}</div>
                     <div className="desc">{props.desc}</div>
                     <div className="price">$ {props.price}</div>
-                    <Button onClick={clickEvent} value={props.button_value} />
+                    <div style={{ marginBottom: '20px' }}><Button onClick={clickEvent} value={props.button_value} /></div>
                 </div>
             </div>
         </div>

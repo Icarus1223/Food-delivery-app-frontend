@@ -1,156 +1,51 @@
-import React, { useState } from 'react'
-import "./style.scss"
-import Button from "../../components/Button/button1"
-import { useSelector } from "react-redux";
-import { VscTriangleDown, VscTriangleUp } from "react-icons/vsc";
-import { BsDashCircle } from "react-icons/bs"
-import { AiOutlineCheckCircle } from "react-icons/ai";
-import PropTypes from 'prop-types';
-import { IMaskInput } from 'react-imask';
+import React, { useState, useEffect } from 'react'
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import InputAdornment from '@mui/material/InputAdornment';
-
-const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
-  const { onChange, ...other } = props;
-  return (
-    <IMaskInput
-      {...other}
-      mask="(#00) 000-0000"
-      definitions={{
-        '#': /[1-9]/,
-      }}
-      inputRef={ref}
-      onAccept={(value) => onChange({ target: { name: props.name, value } })}
-      overwrite
-    />
-  );
-});
-
-TextMaskCustom.propTypes = {
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
+import { useSelector } from "react-redux";
+import { useDispatch } from 'react-redux';
+import { VscTriangleDown, VscTriangleUp } from "react-icons/vsc";
+import { BsDashCircle } from "react-icons/bs"
+import { addToCart } from '../../redux/actions';
+import Button from "../../components/Button/button1"
+import CheckOutModal from './CheckOutForm';
+import "./style.scss"
 
 const CheckOut = () => {
-  const [active, setActive] = useState(false)
-  const [activeAddress, setActiveAddress] = useState(false)
-  const [selectMode, setSelectMode] = useState([false, false])
-  const [selectTime, setSelectTime] = useState([false, false])
-  const [selectPlace, setSelectPlace] = useState([false, false])
-  const [selectConfirm, setSelectConfirm] = useState(false)
-
+  const dispatch = useDispatch()
   const items = useSelector(state => state.items);
 
-  const activeShow = () => {
-    setActive(current => !current)
-  }
-  const showAddress = () => {
-    setActiveAddress(current => !current)
-  }
-
+  const [active, setActive] = useState(false)
+  const [address, setAddress] = useState("")
+  const [phone, setPhone] = useState("")
+  const [extra, setExra] = useState("")
   const priceSubTotal = items.reduce((accumulator, value) => { return accumulator + value.price * value.count; }, 0)
 
-  const priceGST = 7.56;
-  const pricePST = 0.00;
-  const pickup = () => {
-    setSelectMode([true, false])
-    setSelectPlace([false, false])
-  }
-  const delivery = () => {
-    setSelectMode([false, true])
-  }
-  const now = () => {
-    setSelectTime([true, false])
-  }
-  const future = () => {
-    setSelectTime([false, true])
-  }
-  const residential = () => {
-    setSelectPlace([true, false])
-  }
-  const university = () => {
-    setSelectPlace([false, true])
-  }
-  const frontDoor = () => {
-    console.log("frontDoor")
-  }
-  const backDoor = () => {
-    console.log("BackDoor")
-  }
-  const confirm = () => {
-    console.log("confirm")
-    setSelectConfirm(current => !current)
+  const remove = (index) => {
+    const products = items.filter((item, i) => i !== index)
+    localStorage.setItem("cart", JSON.stringify(products))
+    dispatch(addToCart(products))
   }
 
-  const [values, setValues] = useState({
-    textmask: '(100) 000-0000',
-  });
-  const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
-  };
   const InputCSS = {
-    '&.MuiInputBase-root:after': {
-      borderBottom: '2px solid black'
-    },
-    ':hover:not(.Mui-disabled):before': {
-      borderBottom: '2px solid rgba(0, 0, 0, 0.6)'
-    },
-    '&.MuiInputBase-root:before': {
-      borderBottom: '1px solid rgba(0, 0, 0, 0.6)'
-    },
+    '&.MuiInputBase-root:after': { borderBottom: '2px solid black' },
+    ':hover:not(.Mui-disabled):before': { borderBottom: '2px solid rgba(0, 0, 0, 0.6)' },
+    '&.MuiInputBase-root:before': { borderBottom: '1px solid rgba(0, 0, 0, 0.6)' },
   }
   const LabelCSS = {
-    '&.Mui-focused': {
-      color: 'rgba(0, 0, 0, 0.6)',
-    },
+    '&.Mui-focused': { color: 'rgba(0, 0, 0, 0.6)' }
   }
   const InputOtherCSS = {
-    width: '80%',
+    width: '100%',
     marginBottom: '20px',
-    ':before': {
-      borderBottom: '1px solid rgba(0, 0, 0, 0.6)'
-    },
-    ':hover:not(.Mui-disabled):before': {
-      borderBottom: '2px solid rgba(0, 0, 0, 0.6)'
-    },
-    ':after': {
-      borderBottom: '2px solid black'
-    }
+    ':before': { borderBottom: '1px solid rgba(0, 0, 0, 0.6)' },
+    ':hover:not(.Mui-disabled):before': { borderBottom: '2px solid rgba(0, 0, 0, 0.6)' },
+    ':after': { borderBottom: '2px solid black' }
   }
-  const FormCSS = {
-    width: '80%'
-  }
-  const NickCSS = {
-    '& .Mui-focused': {
-      color: 'rgba(0, 0, 0, 0.6)',
-    },
-    '& >: after': {
-      borderBottom: '1px solid rgba(0, 0, 0, 0.42)'
-    }
-  }
-
-  var getMonth = function (idx) {
-    var objDate = new Date();
-    objDate.setDate(1);
-    objDate.setMonth(idx - 1);
-    var locale = "en-us",
-      month = objDate.toLocaleString(locale, { month: "short" });
-    return month;
-  }
-  var days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thrus', 'Fri', 'Sat'];
-  const setThird = new Date()
-  setThird.setDate(setThird.getDate() + 2)
-  const setFourth = new Date()
-  setFourth.setDate(setFourth.getDate() + 3)
-
-  const third = days[setThird.getDay()] + ", " + getMonth(setThird.getMonth() + 1) + " " + setThird.getDate()
-  const fourth = days[setFourth.getDay()] + ", " + getMonth(setFourth.getMonth() + 1) + " " + setFourth.getDate()
+  const FormCSS = { width: '80%' }
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   return (
     <div className='checkOut-container'>
@@ -174,71 +69,63 @@ const CheckOut = () => {
             <div className='total-title'>Total:</div>
             <div className='total-price'>{"$ " + (priceSubTotal * 1.0034 + 0.5).toFixed(2)}</div>
           </div>
-          <Button value="Place Order" />
+          <Button value="Place Order" onClick={() => setIsOpen(true)} />
         </div>
         <div className='review'>
           <div className='review-order'>
-            <div className='order-title' onClick={activeShow}>
+            <div className='order-title' onClick={() => setActive(!active)}>
               <div className='title-txt'>1. Review Order</div>
               <div className='title-symbol'>
                 {active ? <VscTriangleDown /> : <VscTriangleUp />}
               </div>
             </div>
             <hr />
-            {
-              active &&
+            {active &&
               <div className='order-content'>
-                {
-                  items.map((item, index) => {
-                    return (
-                      <div className='review-individual' key={index}>
-                        <div className='individual-img'>
-                          <img src={`${process.env.REACT_APP_SERVER_URL}/${item.img}`} alt="Review" />
-                        </div>
-                        <div className='individual-content'>
-                          <div className='individual-desc'>
-                            <div className="combo-part">
-                              <div className="combo-content">
-                                <span className="key">Name: </span>
-                                <span className="value">{item.title}</span>
-                              </div>
-                              <div className="combo-content">
-                                <span className="key">Price: </span>
-                                <span className="value">$ {item.price}</span>
-                              </div>
-                              <div className="combo-content">
-                                <span className="key">Count: </span>
-                                <span className="value">{item.count}</span>
-                              </div>
-                            </div>
+                {items.map((item, index) => (
+                  <div className='review-individual' key={index}>
+                    <div className='individual-img'>
+                      <img src={`${process.env.REACT_APP_SERVER_URL}/${item.img}`} alt="Review" />
+                    </div>
+                    <div className='individual-content'>
+                      <div className='individual-desc'>
+                        <div className="combo-part">
+                          <div className="combo-content">
+                            <span className="key">Name: </span>
+                            <span className="value">{item.title}</span>
                           </div>
-                          <div className='individual-final'>
-                            <div className='remove-button'><BsDashCircle style={{ fontSize: "12px" }} /> Remove</div>
-                            <div className='individual-price'>{"$ " + (item.count * item.price).toFixed(2)}</div>
+                          <div className="combo-content">
+                            <span className="key">Price: </span>
+                            <span className="value">$ {item.price}</span>
+                          </div>
+                          <div className="combo-content">
+                            <span className="key">Count: </span>
+                            <span className="value">{item.count}</span>
                           </div>
                         </div>
-
                       </div>
-                    )
-                  })
-                }
+                      <div className='individual-final'>
+                        <div className='remove-button' onClick={() => remove(index)}><BsDashCircle style={{ fontSize: "12px" }} /> Remove</div>
+                        <div className='individual-price'>{"$ " + (item.count * item.price).toFixed(2)}</div>
+                      </div>
+                    </div>
+                  </div>
+                )
+                )}
                 <hr />
               </div>
             }
-
           </div>
           <div className='address'>
-            <div className='address-title' onClick={showAddress}>
+            <div className='address-title'>
               <div className='title-txt'>2. Address</div>
             </div>
             <Input
-              value={""}
+              value={address}
               fullWidth
-              onChange={handleChange}
+              onChange={e => setAddress(e.target.value)}
               id="formatted-text-mask-input"
-              sx={{
-                ...InputCSS,
-              }}
+              sx={{ ...InputCSS }}
             />
             <div className='contact-info'>
               <div className='contact-title'>Contact Information</div>
@@ -247,22 +134,22 @@ const CheckOut = () => {
                   <FormControl variant="standard" sx={{ ...FormCSS }}>
                     <InputLabel htmlFor="formatted-text-mask-input" sx={{ ...LabelCSS }}>Phone Number</InputLabel>
                     <Input
-                      value={values.textmask}
-                      onChange={handleChange}
+                      value={phone}
+                      placeholder="+61 424 764 833"
+                      onChange={e => setPhone(e.target.value)}
                       name="textmask"
                       id="formatted-text-mask-input"
-                      inputComponent={TextMaskCustom}
-                      sx={{
-                        ...InputCSS,
-                      }}
+                      sx={{ ...InputCSS }}
                     />
                   </FormControl>
                   <FormControl variant="standard" sx={{ ...FormCSS }}>
                     <InputLabel htmlFor="input-with-icon-adornment" sx={{ ...LabelCSS }}>
-                      Extension(Optional)
+                      Extra(Optional)
                     </InputLabel>
                     <Input
                       id="input-with-icon-adornment"
+                      value={extra}
+                      onChange={e => setExra(e.target.value)}
                       startAdornment={
                         <InputAdornment position="start"  >
                           <AccountCircle />
@@ -270,14 +157,23 @@ const CheckOut = () => {
                       } sx={{ ...InputOtherCSS }}
                     />
                   </FormControl>
-
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       </div>
+      <CheckOutModal
+        show={modalIsOpen}
+        order={{
+          totalPrice: priceSubTotal * 1.0034 + 0.5,
+          orders: items,
+          address: address,
+          phone: phone,
+          extra: extra,
+        }}
+        onHide={() => setIsOpen(false)}
+      />
     </div>
   )
 }

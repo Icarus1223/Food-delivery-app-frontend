@@ -52,62 +52,59 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            {
-              logged
-                ?
-                <div >
-                  <div className='icon-margin md-account' style={{ cursor: 'pointer' }} onClick={() => setOpen(!open)}>
-                    <MdAccountCircle size={30} /> {items.name}
-                  </div>
-                  {(open && token && token.role === "admin") &&
-                    <div style={{ position: 'absolute' }}>
-                      <div
-                        style={{
-                          position: 'absolute',
-                          background: 'white',
-                          top: '10px',
-                          borderRadius: '10px',
-                          padding: '10px',
-                          fontSize: '18px',
-                          textAlign: 'left',
-                          width: '160px'
-                        }}
-                      >
-                        <div className="menu-item" onClick={() => {
-                          setOpen(false)
-                          // navigate('/product/add')
-                        }}>Review Orders</div>
-                        <div className="menu-item" onClick={() => {
-                          setOpen(false)
-                          navigate('/product/add')
-                        }}>Add Product</div>
-                      </div>
-                    </div>
-                  }
+            {logged ?
+              <div>
+                <div className='icon-margin md-account' style={{ cursor: 'pointer' }} onClick={() => setOpen(!open)}>
+                  <MdAccountCircle size={30} /> {items.name}
                 </div>
-                :
-                <Link to="/signup" className='md-account react-icons'>
-                  <div className='icon-margin'>
-                    <MdAccountCircle size={30} />
+                {(open && token && token.role === "admin") &&
+                  <div style={{ position: 'absolute' }}>
+                    <div
+                      style={{
+                        position: 'absolute',
+                        background: 'white',
+                        top: '10px',
+                        borderRadius: '10px',
+                        padding: '10px',
+                        fontSize: '18px',
+                        textAlign: 'left',
+                        width: '160px'
+                      }}
+                    >
+                      <div className="menu-item" onClick={() => {
+                        setOpen(false)
+                        // navigate('/product/add')
+                      }}>Review Orders</div>
+                      <div className="menu-item" onClick={() => {
+                        setOpen(false)
+                        navigate('/product/add')
+                      }}>Add Product</div>
+                    </div>
                   </div>
-                  Create Account
-                </Link>
+                }
+              </div>
+              :
+              <Link to="/signup" className='md-account react-icons'>
+                <div className='icon-margin'>
+                  <MdAccountCircle size={30} />
+                </div>
+                Create Account
+              </Link>
             }
           </li>
           <li>
-            {
-              logged
-                ?
-                <div className='md-box-arrow react-icons' style={{ cursor: 'pointer' }}>
-                  <BsBoxArrowInRight style={{ marginRight: "10px" }} size={30} />
-                  <div onClick={() => dispatch(logOut(items))}>Log Out</div>
+            {logged ?
+              <div className='md-box-arrow react-icons' style={{ cursor: 'pointer' }}>
+                <BsBoxArrowInRight style={{ marginRight: "10px" }} size={30} />
+                <div onClick={() => dispatch(logOut(items))}>Log Out</div>
+              </div>
+              :
+              <Link to="/signIn" className='md-box-arrow react-icons'>
+                <div className='icon-margin'>
+                  <BsBoxArrowInRight size={30} />
                 </div>
-                : <Link to="/signIn" className='md-box-arrow react-icons'>
-                  <div className='icon-margin'>
-                    <BsBoxArrowInRight size={30} />
-                  </div>
-                  Login
-                </Link>
+                Login
+              </Link>
             }
           </li>
         </ul>

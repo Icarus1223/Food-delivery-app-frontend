@@ -25,7 +25,7 @@ const FileUpload = () => {
         "content-type": "multipart/form-data"
       }
     }).then((res) => {
-      if(res.status) {
+      if (res.status) {
         setImgFile(null)
         setPrice(0)
         setDescription("")
@@ -64,10 +64,12 @@ const FileUpload = () => {
             >x</div>
           </div>
           :
-          <Button
-            value={"Upload Image"}
-            onClick={() => { imageRef.current.click() }}
-          />
+          <div style={{ marginBottom: '20px' }}>
+            <Button
+              value={"Upload Image"}
+              onClick={() => { imageRef.current.click() }}
+            />
+          </div>
         }
       </div>
       <input type="file" ref={imageRef} hidden accept="image/*" onChange={handleImageUpload} />

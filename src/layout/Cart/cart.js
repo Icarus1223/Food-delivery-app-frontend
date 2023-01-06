@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/actions";
-import { BsDashCircle } from "react-icons/bs"
+import { BsDashCircle } from "react-icons/bs";
 
 import Basket from "../../assets/img/Vector.png";
 import EmptyCart from "../../assets/img/emptyCart.png"
@@ -17,6 +17,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const items = useSelector((state) => state.items);
+  const token = useSelector((state) => state.token);
 
   const [activeCart, setActiveCart] = useState(false);
   const priceTotal = items.reduce((accumulator, value) => { return accumulator + value.price * value.count; }, 0)
@@ -28,8 +29,10 @@ const Cart = () => {
     dispatch(addToCart(products))
   }
   const checkOut = () => {
-    handleUpCart()
-    navigate("/check-out")
+    if (token) {
+      handleUpCart()
+      navigate("/check-out")
+    } else navigate('/signIn')
   }
 
   useEffect(() => {

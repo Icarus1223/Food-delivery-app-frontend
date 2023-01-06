@@ -15,7 +15,7 @@ const SingUpModal = (props) => {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Welcome to Our Pizza Store</Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">Welcome to Our FoodHero</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <div>You are registered successfully!</div>
