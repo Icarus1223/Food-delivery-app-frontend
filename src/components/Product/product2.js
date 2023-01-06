@@ -18,7 +18,7 @@ export default function ProductTwo(props) {
                             ...cart,
                             count: cart.count + 1
                         }
-                    }
+                    } else return cart
                 })
             } else {
                 carts.push({

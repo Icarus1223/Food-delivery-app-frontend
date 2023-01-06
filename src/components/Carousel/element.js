@@ -19,7 +19,7 @@ export default function CarouselElement(props) {
 							...cart,
 							count: cart.count + 1
 						}
-					}
+					} else return cart
 				})
 			} else {
 				carts.push({
