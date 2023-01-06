@@ -10,21 +10,9 @@ const reducer = (state, action) => {
 
   switch (action.type) {
     case 'ADD_TO_CART':
-      const index = state.items.findIndex(c => c.name === action.payload.name);
-      let items = state.items;
-
-      if (index === -1) {
-        items = [...state.items, payload];
-      } else {
-        items = state.items.map(item =>
-          items.name === payload.name
-            ? { ...item, quantity: payload.quantity }
-            : item
-        );
-      };
       return {
         ...state,
-        items: items,
+        items: payload,
       }
 
     case 'CHICKEN_TO_CART':

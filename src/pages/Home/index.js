@@ -11,14 +11,11 @@ const Home = () => {
   const [data, setData] = useState([])
   useEffect(
     () => {
-      axios.post('/menus', {
-
-      })
-        .then(res => res.data)
-        .then(data => {
-          setData(data)
-        })
+      axios.get('/products/recent').then((res) => {
+        if (res.data.success) setData(res.data.products)
+      }).catch(err => console.log(err))
     }, [])
+
   return (
     <div className="home-page">
       <div className="carousel-container">
@@ -33,22 +30,23 @@ const Home = () => {
         </div>
         <div className="underline"></div>
         <div className="banner">
-          <DemoCarousel />
+          <DemoCarousel data={data} />
         </div>
       </div>
       <div className="product-container">
-        <div className="label">MENU</div>
+        <div className="label">NEW</div>
         <div className="underline"></div>
         <div className="product-list">
           {
             data.map((item, index) => {
               return (
-                <div key={index}>
+                <div key={index} className="product-item">
                   <ProductOne
                     title={item.name}
+                    price={item.price}
                     source={item.img}
-                    buttonValue="Order Now"
-                    onClick={() => navigate(`Product/${item._id}`)}
+                    buttonValue="See more"
+                    onClick={() => navigate(`product/${item._id}`)}
                   />
                 </div>
               )

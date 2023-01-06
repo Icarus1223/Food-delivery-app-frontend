@@ -80,13 +80,16 @@
       margin-top: 30px;
       margin-bottom: 90px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       row-gap: 40px;
       @media only screen and (max-width: 950px) {
         justify-content: center;
         column-gap: 60px;
+      }
+
+      .product-item {
+        margin: 10px;
       }
     }
   }
