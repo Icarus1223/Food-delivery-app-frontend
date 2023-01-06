@@ -88,7 +88,6 @@ export default class SeeAll extends Component {
                 <div className="product-container">
                     <div className="label">
                         <span>SPECIALS</span>
-
                     </div>
                     <div className="product-list">
                         {

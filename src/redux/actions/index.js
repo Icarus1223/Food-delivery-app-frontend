@@ -41,6 +41,7 @@ export function tokenGenerate(token) {
 }
 
 export function logOut(items) {
+  localStorage.clear()
   return {
     type: 'REMOVE_TOKEN',
     payload: items,

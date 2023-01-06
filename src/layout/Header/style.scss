@@ -11,16 +11,18 @@
     padding: 10px 0px;
     max-width: 1320px;
     margin: 0 auto;
+
     @media only screen and (max-width: 1320px) {
       padding: 10px 10px;
     }
+
     .top-logo {
       img {
         width: 80%;
       }
     }
   }
-  
+
   .menu {
     display: flex;
     align-items: center;
@@ -29,21 +31,23 @@
     margin: 0;
     padding: 0;
     column-gap: 50px;
+
     .home-li {
       padding: 5px 25px;
       border: 2px solid;
       border-radius: 7px;
+
       @media (max-width: 700px) {
         border-radius: 0px;
       }
     }
   }
-  
-  .menu > li {
+
+  .menu>li {
     // margin: 0 1rem;
     overflow: hidden;
   }
-  
+
   .menu-button-container {
     display: none;
     height: 100%;
@@ -53,11 +57,11 @@
     justify-content: center;
     align-items: center;
   }
-  
+
   #menu-toggle {
     display: none;
   }
-  
+
   .menu-button,
   .menu-button::before,
   .menu-button::after {
@@ -69,27 +73,27 @@
     transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
     border-radius: 2px;
   }
-  
+
   .menu-button::before {
     content: '';
     margin-top: -8px;
   }
-  
+
   .menu-button::after {
     content: '';
     margin-top: 8px;
   }
-  
-  #menu-toggle:checked + .menu-button-container .menu-button::before {
+
+  #menu-toggle:checked+.menu-button-container .menu-button::before {
     margin-top: 0px;
     transform: rotate(405deg);
   }
-  
-  #menu-toggle:checked + .menu-button-container .menu-button {
+
+  #menu-toggle:checked+.menu-button-container .menu-button {
     background: green;
   }
-  
-  #menu-toggle:checked + .menu-button-container .menu-button::after {
+
+  #menu-toggle:checked+.menu-button-container .menu-button::after {
     margin-top: 0px;
     transform: rotate(-405deg);
   }
@@ -101,6 +105,16 @@
 
   .md-account {
     font-size: 20px;
+  }
+
+  .menu-item {
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #EEEEEE;
+    }
   }
 
   .md-box-arrow {
@@ -117,15 +131,16 @@
       margin-right: 10px;
     }
   }
+
   .log-out {
     margin-right: 10px;
   }
-  
+
   @media (max-width: 700px) {
     .menu-button-container {
       display: flex;
     }
-   
+
     .menu {
       position: absolute;
       top: 60px;
@@ -138,20 +153,23 @@
       z-index: 10;
       box-shadow: 0px 8px 10px rgba($color: #000000, $alpha: 0.5);
     }
-    #menu-toggle ~ .menu li {
+
+    #menu-toggle~.menu li {
       height: 0;
       margin: 0;
       padding: 0;
       border: 0;
       transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
     }
-    #menu-toggle:checked ~ .menu li {
+
+    #menu-toggle:checked~.menu li {
       border: 1px solid #fff;
       height: 2.5em;
       padding: 0.5em 0;
       transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
     }
-    .menu > li {
+
+    .menu>li {
       display: flex;
       justify-content: flex-start;
       margin: 0;
@@ -160,7 +178,8 @@
       color: white;
       background-color: green;
     }
-    .menu > li:not(:last-child) {
+
+    .menu>li:not(:last-child) {
       border-bottom: 1px solid #fff;
     }
   }

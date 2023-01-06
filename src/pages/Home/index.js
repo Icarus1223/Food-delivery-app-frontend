@@ -12,12 +12,12 @@ const Home = () => {
   useEffect(
     () => {
       axios.post('/menus', {
-       
+
       })
-      .then(res =>res.data)
-      .then(data => {
-        setData(data)
-      })
+        .then(res => res.data)
+        .then(data => {
+          setData(data)
+        })
     }, [])
   return (
     <div className="home-page">
@@ -42,21 +42,21 @@ const Home = () => {
         <div className="product-list">
           {
             data.map((item, index) => {
-              return(
+              return (
                 <div key={index}>
-                    <ProductOne
-                      title={item.name}
-                      source={item.img}
-                      buttonValue="Order Now"
-                      onClick={() => navigate(`Product/${item._id}`)}
-                    />
+                  <ProductOne
+                    title={item.name}
+                    source={item.img}
+                    buttonValue="Order Now"
+                    onClick={() => navigate(`Product/${item._id}`)}
+                  />
                 </div>
               )
             })
           }
         </div>
       </div>
-  </div>
+    </div>
   )
 }
 
