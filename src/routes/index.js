@@ -20,7 +20,7 @@ const Routing = () => {
 				<Route path='/signIn' element={<SignIn />} />
 				<Route path='/signup' element={<SignUp />} />
 				<Route path="/see-all" element={logged ? <SeeAll /> : <Navigate to="/signIn" />} />
-				<Route path="/CheckOut" element={logged ? <CheckOut /> : <Navigate to="/signIn" />} />
+				<Route path="/check-out" element={logged ? <CheckOut /> : <Navigate to="/signIn" />} />
 				<Route path='/product/:id' element={<Product />} />
 				<Route path='/product/add' element={logged && token && token.role === 'admin' ? <FileUpload /> : <Navigate to="/signIn" />} />
 			</Routes>
