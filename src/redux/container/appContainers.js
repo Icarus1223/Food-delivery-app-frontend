@@ -4,16 +4,14 @@ import { addToCart } from "../actions/index";
 import { tokenGenerate } from '../actions/index';
 
 const mapStateToProps = (state) => {
-  return {
-    token:state
-  }
+  return { token: state }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (params) => dispatch(addToCart(params)),
     tokenGenerate: (params) => dispatch(tokenGenerate(params)),
-    dispatch 
+    dispatch
   }
 }
 

@@ -7,8 +7,8 @@ import SignUp from '../pages/SignUp';
 import Product from '../pages/Product';
 import CheckOut from '../pages/CheckOut';
 import FileUpload from '../pages/FileUpload';
-import { useSelector } from 'react-redux';
 import Order from '../pages/Orders';
+import { useSelector } from 'react-redux';
 
 const Routing = () => {
 	const logged = useSelector((state) => state.logged);

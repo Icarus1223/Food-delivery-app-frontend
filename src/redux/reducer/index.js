@@ -15,19 +15,6 @@ const reducer = (state, action) => {
         items: payload,
       }
 
-    case 'CHICKEN_TO_CART':
-      const indexChicken = state.items.findIndex(c => c.name === action.payload.name);
-      let itemChicken = state.items;
-
-      if (indexChicken === -1) {
-        payload.status = true
-        itemChicken = [...state.items, payload]
-      }
-      return {
-        ...state,
-        items: itemChicken,
-      }
-
     case 'Token_To_Generate':
       let temp = action.payload
       return {
