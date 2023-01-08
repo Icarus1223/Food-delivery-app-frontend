@@ -1,7 +1,7 @@
-export function addToCart(addPizza) {
+export function addToCart(addItem) {
   return {
     type: 'ADD_TO_CART',
-    payload: addPizza,
+    payload: addItem,
   }
 }
 

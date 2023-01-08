@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Button from "../../components/Button/button1";
-import SignUpBanner from "../../assets/img/signup-banner.png";
 import axios from "axios";
 import { useNavigate } from 'react-router';
 import SingUpModal from "./SingUpModal";
@@ -30,7 +28,6 @@ class SignUp extends Component {
 	}
 
 	onSignUp = () => {
-		// const emailMatch = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.emailRef.current.value);
 		const emailMatch = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(this.emailRef.current.value);
 		let flag = 0;
 		this.setState({
@@ -116,13 +113,7 @@ class SignUp extends Component {
 				<header className="signUp-header">REGISTER</header>
 				<div className="signUp-content">
 					<div className="email-container">
-
-						<div className="signUp-banner">
-							<LazyLoadImage src={SignUpBanner} alt="Sign up Banner" />
-						</div>
-
 						<div className="email">
-
 							<div className="first-name">
 								<div><label>First Name<span>{this.state.firstNameAlert}</span></label></div>
 								<div className="input"><input type="text" name="Ufirstname" id="Ufirstname" ref={this.fnameRef} /></div>

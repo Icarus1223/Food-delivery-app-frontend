@@ -1,13 +1,13 @@
 @import './assets/css/responsive.scss';
 
 @font-face {
-  font-family: pizzaFont;
+  font-family: FoodFont;
   src: url(./assets/fonts/Prompt-Medium.ttf);
 }
 
 .App {
   text-align: center;
-  font-family: pizzaFont;
+  font-family: FoodFont;
   height: 100%;
   color: #000;
   background-color: #f3f3f3;
@@ -43,6 +43,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

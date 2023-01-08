@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import ProductTwo from "../../components/Product/product2";
-import Banner from "../../assets/img/banner-2.png";
 import axios from "axios";
 
 export default function SeeAll() {
@@ -13,13 +12,9 @@ export default function SeeAll() {
                 if (data.success) setData(data.products)
             }).catch(err => console.log(err))
     }, [])
+    
     return (
         <div className="page-2">
-            <div className="banner-container">
-                <div className="banner">
-                    <img src={Banner} />
-                </div>
-            </div>
             <div className="product-container">
                 <div className="label">
                     <span>FOODS</span>

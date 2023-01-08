@@ -1,6 +1,7 @@
 .home-page {
   margin: 0 auto;
   max-width: 1320px;
+
   @media (max-width: 1320px) {
     padding: 0px 10px
   }
@@ -11,6 +12,7 @@
       justify-content: space-between;
       align-items: center;
       margin-top: 50px;
+
       .label-special {
         font-size: 25px;
         font-weight: 700;
@@ -30,13 +32,14 @@
         font-weight: 400;
         text-decoration: none;
         color: #3C1C21;
+
         .navigation-seeAll {
           font-size: 15px;
           font-weight: 400;
         }
 
         .navigation-icon {
-          color: #FCA017;
+          color: #659B9B;
         }
 
         @media only screen and (max-width: $s-size) {
@@ -46,7 +49,7 @@
     }
 
     .underline {
-      border-bottom: 5px solid #FCA017;
+      border-bottom: 5px solid #659B9B;
       padding-bottom: 10px;
       width: 181px;
     }
@@ -61,6 +64,7 @@
       }
     }
   }
+
   .product-container {
     .label {
       margin-top: 105px;
@@ -71,7 +75,7 @@
     }
 
     .underline {
-      border-bottom: 5px solid #FCA017;
+      border-bottom: 5px solid #659B9B;
       padding-bottom: 10px;
       width: 50px;
     }
@@ -83,6 +87,7 @@
       align-items: center;
       flex-wrap: wrap;
       row-gap: 40px;
+
       @media only screen and (max-width: 950px) {
         justify-content: center;
         column-gap: 60px;

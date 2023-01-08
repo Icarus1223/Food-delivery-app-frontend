@@ -16,35 +16,13 @@
 		justify-content: center;
 
 		.email-container {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-
-			@media only screen and (max-width: $breakpoint-medium) {
-					display: block;
-			}
-
-			.signUp-banner {
-				flex: 1;
-				padding: 50px;
-				img {
-					width: 100%;
-				}
-			}
+			margin-top: 30px;
 
 			.email {
-				flex: 1;
 				text-align: left;
 				display: flex;
 				flex-direction: column;
 				gap: 15px;
-
-				@media only screen and (max-width: $breakpoint-medium) {
-					text-align: center;
-					max-width: 80%;
-					margin-left: auto;
-					margin-right: auto;
-				}
 
 				span {
 					color: #ff5656;
@@ -54,7 +32,6 @@
 
 				.first-name {
 					input {
-						width: 90%;
 						border: none;
 						background-color: transparent;
 						border-bottom: 1px solid #ccd6d8;
@@ -70,7 +47,6 @@
 				.last-name {
 
 					input {
-						width: 90%;
 						border: none;
 						background-color: transparent;
 						border-bottom: 1px solid #ccd6d8;
@@ -78,16 +54,13 @@
 						font-size: 20px;
 
 						&:focus-visible {
-								outline: none;
+							outline: none;
 						}
 					}
 				}
 
 				.email-input {
-					label {}
-
 					input {
-						width: 90%;
 						border: none;
 						background-color: transparent;
 						border-bottom: 1px solid #ccd6d8;
@@ -95,16 +68,13 @@
 						font-size: 20px;
 
 						&:focus-visible {
-								outline: none;
+							outline: none;
 						}
 					}
 				}
 
 				.password-input {
-					label {}
-
 					input {
-						width: 90%;
 						border: none;
 						background-color: transparent;
 						border-bottom: 1px solid #ccd6d8;
@@ -112,15 +82,13 @@
 						font-size: 20px;
 
 						&:focus-visible {
-								outline: none;
+							outline: none;
 						}
 					}
 				}
 
 				.password-confirm {
-
 					input {
-						width: 90%;
 						border: none;
 						background-color: transparent;
 						border-bottom: 1px solid #ccd6d8;
@@ -128,7 +96,7 @@
 						font-size: 20px;
 
 						&:focus-visible {
-								outline: none;
+							outline: none;
 						}
 					}
 				}
@@ -141,11 +109,12 @@
 				}
 			}
 
-				button {
-						margin-bottom: inherit;
-				}
-      }
-    }
+			button {
+				margin-top: 20px;
+				margin-bottom: inherit;
+			}
+		}
+	}
 }
 
 @import '../../components/Button/button1.scss'
