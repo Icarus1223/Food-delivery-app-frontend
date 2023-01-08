@@ -20,9 +20,7 @@
 
 			.email {
 				text-align: left;
-				display: flex;
-				flex-direction: column;
-				gap: 15px;
+				width: 360px !important;
 
 				span {
 					color: #ff5656;
@@ -32,10 +30,11 @@
 
 				.first-name {
 					input {
+						width: 100%;
 						border: none;
 						background-color: transparent;
 						border-bottom: 1px solid #ccd6d8;
-						margin-top: 10px;
+						margin: 10px 0px;
 						font-size: 20px;
 
 						&:focus-visible {
@@ -45,12 +44,12 @@
 				}
 
 				.last-name {
-
 					input {
 						border: none;
+						width: 100%;
 						background-color: transparent;
 						border-bottom: 1px solid #ccd6d8;
-						margin-top: 10px;
+						margin: 10px 0px;
 						font-size: 20px;
 
 						&:focus-visible {
@@ -62,9 +61,10 @@
 				.email-input {
 					input {
 						border: none;
+						width: 100%;
 						background-color: transparent;
 						border-bottom: 1px solid #ccd6d8;
-						margin-top: 10px;
+						margin: 10px 0px;
 						font-size: 20px;
 
 						&:focus-visible {
@@ -76,9 +76,10 @@
 				.password-input {
 					input {
 						border: none;
+						width: 100%;
 						background-color: transparent;
 						border-bottom: 1px solid #ccd6d8;
-						margin-top: 10px;
+						margin: 10px 0px;
 						font-size: 20px;
 
 						&:focus-visible {
@@ -90,9 +91,10 @@
 				.password-confirm {
 					input {
 						border: none;
+						width: 100%;
 						background-color: transparent;
 						border-bottom: 1px solid #ccd6d8;
-						margin-top: 10px;
+						margin: 10px 0px;
 						font-size: 20px;
 
 						&:focus-visible {
@@ -110,7 +112,7 @@
 			}
 
 			button {
-				margin-top: 20px;
+				margin-top: 40px;
 				margin-bottom: inherit;
 			}
 		}
