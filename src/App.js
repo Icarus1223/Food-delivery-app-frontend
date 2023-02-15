@@ -1,11 +1,10 @@
 import './App.scss';
-import { useEffect } from 'react';
 import Routing from './routes';
 import { BrowserRouter as Router } from 'react-router-dom'
 import Layout from './layout'
 import axios from 'axios'
 
-axios.defaults.baseURL="http://localhost:5000"
+axios.defaults.baseURL=`${process.env.REACT_APP_SERVER_URL}`
 
 function App() {
  
